@@ -1,0 +1,17 @@
+
+a {
+    font-family: sans-serif;
+    display: inline-block;
+    height: 20px;
+    padding: 20px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    color: #fff;
+}
+#nav {
+    background-color: #141e30;
+    height: 7%;
+}
+#notLoggedIn {
+    display: inline-block;
+}

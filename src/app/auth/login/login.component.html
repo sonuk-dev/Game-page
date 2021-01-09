@@ -1,0 +1,48 @@
+<div class="cont">
+  <div id="login-box" class="login-box">
+    <h2>Login</h2>
+
+    <form [formGroup]="user" class="form">
+
+      <mat-form-field class="input">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+
+        <mat-error *ngIf="user.get('email').hasError('email')">
+          Please enter a <strong>valid</strong> email address
+        </mat-error>
+        <mat-error *ngIf="user.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+
+        <button class="eye" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="user.get('password').hasError('minlength') && !user.get('password').hasError('required')">
+          Min 6 characters
+        </mat-error>
+        <mat-error *ngIf="user.get('password').hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <p class="err" *ngIf="serverError.userNotExist"> The email you entered does not belong to any account.</p>
+      <p class="err" *ngIf="serverError.wrondPassword"> The password you entered is incorrect. Try again or <strong>Reset your password</strong>.</p>
+
+      <button class="submitButton" (click)="login()" type="submit">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button>
+
+    </form>
+  </div>
+</div>

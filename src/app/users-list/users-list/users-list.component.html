@@ -1,0 +1,32 @@
+<div class="cont">
+    <table class="container">
+        <thead>
+            <tr>
+                <th>
+                    <h1>Nickname</h1>
+                </th>
+                <th>
+                    <h1>Email</h1>
+                </th>
+                <th>
+                    <h1>Points</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.nickname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.bestScore }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="buttons">
+        <button (click)="previousPage()">previous</button>
+        <button (click)="nextPage()">next</button>
+        <button (click)="nextPage()">next</button>
+        {{numberOfUsers}}
+        {{numberOfPages}}
+    </div>
+    
+</div>

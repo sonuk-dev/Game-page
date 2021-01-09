@@ -1,0 +1,10 @@
+<div id="nav">
+    <a routerLink="/game" routerLinkActive="active">Game</a>
+    <a routerLink="/usersList" routerLinkActive="active">Users List</a>
+    <a *ngIf="isLoggedIn()" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
+    <div id="notLoggedIn" *ngIf="!isLoggedIn()">
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/registration" routerLinkActive="active">Registration</a>
+    </div>
+</div>
+<router-outlet></router-outlet>

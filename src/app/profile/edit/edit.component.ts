@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from "../user.service";
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -18,7 +18,7 @@ export class EditComponent implements OnInit {
       Validators.email,
     ])),
   });
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCurrentUser();
@@ -34,7 +34,11 @@ export class EditComponent implements OnInit {
       nickname: this.editedUser.get('nickname').value,
       email: this.editedUser.get('email').value
     }).subscribe(
-      (res) => {console.log(res)} 
-      );
+      (res: any) => {
+        localStorage.setItem('currentUser', JSON.stringify(res.user));
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/profile']);
+      }
+    );
   }
 }

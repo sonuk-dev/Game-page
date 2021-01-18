@@ -33,19 +33,16 @@ export class RegistrationComponent implements OnInit {
       email: this.user.get('email').value,
       password: this.user.get('password').value
     }).subscribe(
-      (user) => {
+      (res: any) => {
         this.serverError.emailDuplicate = false;
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('currentUser', JSON.stringify(res.user));
+        localStorage.setItem('token', res.token);
       },
       (err) => {
-        console.log(err);
-        console.log(err.error.error);
-        console.log(`{ email: ${this.user.get('email').value} }`)
         // "E11000 duplicate key error collection: Cluster0.users index: email_1 dup key: { email: "email@email" }"
         if (err.error.error.endsWith(`{ email: "${this.user.get('email').value}" }`)) {
           this.serverError.emailDuplicate = true;
         }
-
       },
     );
   }

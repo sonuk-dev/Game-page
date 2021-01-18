@@ -36,7 +36,4 @@ export class AuthService {
     return this.http.post(environment.apiUrl + '/registration', user)
   }
 
-  getUser() {
-    return this.http.get(environment.apiUrl + '/users/userslist')
-  }
 }

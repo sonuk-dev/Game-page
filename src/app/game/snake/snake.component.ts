@@ -136,12 +136,14 @@ export class SnakeComponent implements OnInit {
       let user = JSON.parse(localStorage.getItem('currentUser'));
       if (this.currentScore > user.bestScore) {
         this.scoreService.changeBestScore(user._id, this.currentScore).subscribe(
-          (res) => { localStorage.setItem('currentUser', JSON.stringify(res)); 
-      this.router.navigate(['/game/game-over'])
-    }
+          (res: any) => {
+            localStorage.setItem('currentUser', JSON.stringify(res.user));
+            localStorage.setItem('token', res.token);
+            this.router.navigate(['/game/game-over'])
+          }
         );
       } else
-      this.router.navigate(['/game/game-over'])
+        this.router.navigate(['/game/game-over'])
     }
   }
 

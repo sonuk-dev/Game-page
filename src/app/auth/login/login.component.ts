@@ -37,11 +37,12 @@ export class LoginComponent implements OnInit {
       return;
     this.authService.login(this.user.get('email').value, this.user.get('password').value)
       .subscribe(
-        (user) => {
-          console.log('user', user)
+        (res: any) => {
+          console.log('user', res.user)
           this.serverError.userNotExist = false;
           this.serverError.wrondPassword = false;
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(res.user));
+          localStorage.setItem('token', res.token);
           this.router.navigate(['/game']);
         },
         (err) => {

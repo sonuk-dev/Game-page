@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../auth.service";
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     ])),
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void { 
     console.log(this.user.get('email'))
@@ -42,13 +42,16 @@ export class LoginComponent implements OnInit {
           this.serverError.userNotExist = false;
           this.serverError.wrondPassword = false;
           localStorage.setItem('currentUser', JSON.stringify(user));
+          this.router.navigate(['/game']);
         },
         (err) => {
           console.log(err)
           if (JSON.parse(err.error.error).email) {
             this.serverError.userNotExist = true;
+            this.serverError.wrondPassword = false;
           } else if (JSON.parse(err.error.error).password) {
             this.serverError.wrondPassword = true;
+            this.serverError.userNotExist = false;
           }
 
         }

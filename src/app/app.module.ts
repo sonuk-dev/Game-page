@@ -8,14 +8,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from "@angular/material/button";
-import { DashboardModule } from "./dashboard/dashboard.module";
 import { UsersListModule } from "./users-list/users-list.module";
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    DashboardModule,
     MatButtonModule,
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +21,8 @@ import { UsersListModule } from "./users-list/users-list.module";
     AuthModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    UsersListModule
+    UsersListModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

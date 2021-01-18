@@ -1,32 +1,34 @@
 <div class="cont">
-    <table class="container">
-        <thead>
-            <tr>
-                <th>
-                    <h1>Nickname</h1>
-                </th>
-                <th>
-                    <h1>Email</h1>
-                </th>
-                <th>
-                    <h1>Points</h1>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{ user.nickname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.bestScore }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="table">
+        <table class="container">
+            <thead>
+                <tr>
+                    <th>
+                        <h1>Nickname</h1>
+                    </th>
+                    <th>
+                        <h1>Email</h1>
+                    </th>
+                    <th>
+                        <h1>Points</h1>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.nickname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.bestScore }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div id="buttons">
-        <button (click)="previousPage()">previous</button>
-        <button (click)="nextPage()">next</button>
-        <button (click)="nextPage()">next</button>
-        {{numberOfUsers}}
-        {{numberOfPages}}
+        <div class="buttonDiv"><mat-icon class="button" [ngClass]="{buttonHide: page == 1}" (click)="previousPage()">arrow_back</mat-icon></div>
+        <div class="pages">{{ page }} ... {{ numberOfPages }}</div>
+        <div class="buttonDiv"><mat-icon class="button"  [ngClass]="{buttonHide: page == numberOfPages}" (click)="nextPage()">arrow_forward</mat-icon></div> 
+
     </div>
     
 </div>

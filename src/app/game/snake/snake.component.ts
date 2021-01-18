@@ -8,7 +8,7 @@ import { ScoreService } from "../score.service";
   styleUrls: ['./snake.component.css', '../start/start.component.scss']
 })
 export class SnakeComponent implements OnInit {
-  
+
   constructor(private router: Router, private scoreService: ScoreService) { }
 
   board_border = 'black';
@@ -51,7 +51,7 @@ export class SnakeComponent implements OnInit {
   snakeboard = document.createElement('canvas');
   // Return a two dimensional drawing context
   snakeboard_ctx = this.snakeboard.getContext("2d");
-  
+
   ngOnInit(): void {
     this.snakeboard.width = 500;
     this.snakeboard.height = 500;
@@ -131,9 +131,16 @@ export class SnakeComponent implements OnInit {
     const hitRightWall = this.snake[0].x > this.snakeboard.width - this.elementSize;
     const hitToptWall = this.snake[0].y < 0;
     const hitBottomWall = this.snake[0].y > this.snakeboard.height - this.elementSize;
-    console.log(hitLeftWall || hitRightWall || hitToptWall || hitBottomWall)
-    if (hitLeftWall || hitRightWall || hitToptWall || hitBottomWall){
-      this.game_over = true
+    if (hitLeftWall || hitRightWall || hitToptWall || hitBottomWall) {
+      this.game_over = true;
+      let user = JSON.parse(localStorage.getItem('currentUser'));
+      if (this.currentScore > user.bestScore) {
+        this.scoreService.changeBestScore(user._id, this.currentScore).subscribe(
+          (res) => { localStorage.setItem('currentUser', JSON.stringify(res)); 
+      this.router.navigate(['/game/game-over'])
+    }
+        );
+      } else
       this.router.navigate(['/game/game-over'])
     }
   }

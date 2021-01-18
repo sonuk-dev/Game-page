@@ -1,0 +1,25 @@
+<div id="cont">
+    <div id="box">
+        <form class="form"  [formGroup]="editedUser">
+            <mat-form-field class="input">
+                <mat-label>Nickname</mat-label>
+                <input type="text" matInput formControlName="nickname" value="Sushi">
+                <mat-error *ngIf="editedUser.get('nickname').hasError('required')">
+                    Nickname is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" placeholder="Ex. Pizza" value="Sushi">
+                <mat-error *ngIf="editedUser.get('email').hasError('email') && !editedUser.get('email').hasError('required')">
+                    Please enter a <strong>valid</strong> email address
+                </mat-error>
+                <mat-error *ngIf="editedUser.get('email').hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="accent" (click)="updateUser()">Accent</button>
+        </form>
+    </div>
+</div>

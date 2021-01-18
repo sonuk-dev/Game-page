@@ -1,3 +1,8 @@
 <div id="cont">
-    <p>{{ currentScore }}</p>
+    <div id="box">
+        <h1>Game Over</h1>
+        <p>Score: <span>{{ currentScore }}</span></p>
+        <p>High score: <span>{{ userBestScore }}</span></p>
+        <button class="button" (click)="playAgain()">Try again</button>
+    </div>
 </div>

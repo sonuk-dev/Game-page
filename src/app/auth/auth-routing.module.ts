@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('../game/game.module').then(m => m.GameModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('../profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
 ];

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UsersListRoutingModule } from './users-list-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -11,10 +11,12 @@ import { UsersListComponent } from './users-list/users-list.component';
   ],
   imports: [
     CommonModule,
-    UsersListRoutingModule
+    UsersListRoutingModule,
+    MatIconModule
   ],
   exports: [
-    UsersListComponent
+    UsersListComponent,
+    MatIconModule
   ]
 })
 export class UsersListModule { }

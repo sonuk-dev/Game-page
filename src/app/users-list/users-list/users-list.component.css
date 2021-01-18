@@ -4,7 +4,7 @@
 .cont {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
-  height: 900px;
+  height: 93%;
   margin: 0;
   padding: 0;
 
@@ -86,4 +86,28 @@
 @media (max-width: 800px) {
 .container td:nth-child(4),
 .container th:nth-child(4) { display: none; }
+}
+.buttonHide {
+  display: none;
+}
+.button {
+  background-color: rgba(207, 204, 204, 0);
+  cursor: pointer;
+  border: none;
+}
+#buttons{
+  width: 150px;
+  height: 30px;
+  margin: 0 auto;
+}
+.buttonDiv{
+  width: auto;
+  height: 30px;
+  float: left;
+}
+.pages {
+  height: 30px;
+  line-height: 24px;
+  margin: 0 15px;
+  float: left;
 }

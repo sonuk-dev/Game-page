@@ -1,0 +1,9 @@
+<div id="cont">
+    <div id="box">
+        <h1>Hi {{ currentUser.nickname }}!</h1>
+        <p>Nickname: <span>{{ currentUser.nickname }}</span></p>
+        <p>Email: <span>{{ currentUser.email }}</span></p>
+        <p>High Score: <span>{{ currentUser.bestScore }}</span></p>
+        <mat-icon (click)="goToEdit()">edit</mat-icon>
+    </div>
+</div>

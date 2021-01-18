@@ -1,4 +1,5 @@
 <div id="nav">
+    <a routerLink="/profile" routerLinkActive="active">Your Profile</a>
     <a routerLink="/game" routerLinkActive="active">Game</a>
     <a routerLink="/usersList" routerLinkActive="active">Users List</a>
     <a *ngIf="isLoggedIn()" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>

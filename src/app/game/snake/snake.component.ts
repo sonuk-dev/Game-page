@@ -133,9 +133,10 @@ export class SnakeComponent implements OnInit {
     const hitBottomWall = this.snake[0].y > this.snakeboard.height - this.elementSize;
     if (hitLeftWall || hitRightWall || hitToptWall || hitBottomWall) {
       this.game_over = true;
+      this.scoreService.addGame(this.currentScore);
       let user = JSON.parse(localStorage.getItem('currentUser'));
       if (this.currentScore > user.bestScore) {
-        this.scoreService.changeBestScore(user._id, this.currentScore).subscribe(
+        this.scoreService.changeBestScore(this.currentScore).subscribe(
           (res: any) => {
             localStorage.setItem('currentUser', JSON.stringify(res.user));
             localStorage.setItem('token', res.token);

@@ -17,10 +17,19 @@ export class ScoreService {
   currentScore = 0;
   game_over = false;
   gameStarted = false;
-  changeBestScore(_id, bestScore) {
+  changeBestScore(bestScore) {
     return this.http.put(environment.apiUrl + '/user/changeBestScore', {
-      _id,
+      _id: JSON.parse(localStorage.getItem('currentUser'))._id,
       bestScore
     }, httpOptions);
+  }
+  addGame(currentScore) {
+    this.http.put(environment.apiUrl + '/games/addGame', {
+      userId: JSON.parse(localStorage.getItem('currentUser'))._id,
+      date: Date.now(),
+      score: currentScore
+    }, httpOptions).subscribe(
+      (res) => console.log(res)
+    );
   }
 }

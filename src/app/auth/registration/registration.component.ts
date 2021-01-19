@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../auth.service";
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -24,7 +24,7 @@ export class RegistrationComponent implements OnInit {
       Validators.minLength(6),
     ])),
   });
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
   register() {
     if (this.user.status == "INVALID")
       return;
@@ -35,8 +35,10 @@ export class RegistrationComponent implements OnInit {
     }).subscribe(
       (res: any) => {
         this.serverError.emailDuplicate = false;
+        console.log(res.user)
         localStorage.setItem('currentUser', JSON.stringify(res.user));
         localStorage.setItem('token', res.token);
+        this.router.navigate(['/game']);
       },
       (err) => {
         // "E11000 duplicate key error collection: Cluster0.users index: email_1 dup key: { email: "email@email" }"

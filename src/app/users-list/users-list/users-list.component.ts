@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../users.service";
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -12,7 +12,7 @@ export class UsersListComponent implements OnInit {
   itemPerPage = 5;
   numberOfUsers: Number;
   numberOfPages: Number;
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService, private router: Router) { }
 
   getNumberOfUsers() {
     this.userService.getAllUsers().subscribe(
@@ -41,9 +41,16 @@ export class UsersListComponent implements OnInit {
     this.page--;
     this.getTopUsers()
   }
+  toPage(user) {
+    this.router.navigate(['/usersList/userPage', {
+      nickname : user.nickname,
+      email: user.email,
+      bestScore: user.bestScore
+    }]);
+  }
+
   ngOnInit(): void {
     this.getTopUsers()
     this.getNumberOfUsers()
   }
-
 }

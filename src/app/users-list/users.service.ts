@@ -15,7 +15,8 @@ const httpOptions = {
 })
 export class UsersService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
   getAllUsers() {
     return this.http.get(environment.apiUrl + `/users`, httpOptions)
   }

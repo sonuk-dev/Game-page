@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from "@angular/material/button";
 import { UsersListModule } from "./users-list/users-list.module";
+
 @NgModule({
   declarations: [
     AppComponent,

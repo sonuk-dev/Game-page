@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from "@angular/material/button";
 import { UsersListModule } from "./users-list/users-list.module";
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +23,9 @@ import { UsersListModule } from "./users-list/users-list.module";
     BrowserAnimationsModule,
     MatSliderModule,
     UsersListModule,
- 
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -4,5 +4,6 @@
         <p>Nickname: <span>{{ user.nickname }}</span></p>
         <p>Email: <span>{{ user.email }}</span></p>
         <p>High Score: <span>{{ user.bestScore }}</span></p>
+        <app-rate-chart [userId]="user.id"></app-rate-chart>
     </div>
 </div>

@@ -8,13 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserPageComponent implements OnInit {
   user:any;
-  constructor(private userService: UsersService, private dataRoute: ActivatedRoute) { }
+  constructor(private dataRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = {
       nickname: this.dataRoute.snapshot.params['nickname'],
       email: this.dataRoute.snapshot.params['email'],
-      bestScore: this.dataRoute.snapshot.params['bestScore']
+      bestScore: this.dataRoute.snapshot.params['bestScore'],
+      id: this.dataRoute.snapshot.params['_id']
     }
   }
 

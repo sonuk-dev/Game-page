@@ -42,11 +42,7 @@ export class UsersListComponent implements OnInit {
     this.getTopUsers()
   }
   toPage(user) {
-    this.router.navigate(['/usersList/userPage', {
-      nickname : user.nickname,
-      email: user.email,
-      bestScore: user.bestScore
-    }]);
+    this.router.navigate(['/usersList/userPage', user]);
   }
 
   ngOnInit(): void {

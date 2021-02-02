@@ -5,7 +5,6 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavComponent } from './nav/nav.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,7 +19,6 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule

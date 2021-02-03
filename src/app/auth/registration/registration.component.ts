@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
     nickname: new FormControl('', Validators.required),
     email: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.email,
+      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
     ])),
     password: new FormControl('', Validators.compose([
       Validators.required,

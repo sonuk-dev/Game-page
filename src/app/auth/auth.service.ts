@@ -21,7 +21,7 @@ export class AuthService {
   login(email, password) {
     console.log('service', email, password)
 
-    return this.http.post(environment.apiUrl + '/users/login', {
+    return this.http.post(environment.apiUrl + '/auth/login', {
       email: email,
       password: password
     });
@@ -33,7 +33,7 @@ export class AuthService {
 
   addUser(user) {
     console.log(user)
-    return this.http.post(environment.apiUrl + '/registration', user)
+    return this.http.post(environment.apiUrl + '/auth/registration', user)
   }
 
 }

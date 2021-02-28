@@ -45,6 +45,7 @@ export class RegistrationComponent implements OnInit {
         if (err.error.error.endsWith(`{ email: "${this.user.get('email').value}" }`)) {
           this.serverError.emailDuplicate = true;
         }
+        console.log(err)
       },
     );
   }

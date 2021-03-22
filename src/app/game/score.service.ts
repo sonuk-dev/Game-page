@@ -24,7 +24,7 @@ export class ScoreService {
     }, httpOptions);
   }
   addGame(currentScore) {
-    this.http.put(environment.apiUrl + '/games/addGame', {
+    this.http.post(environment.apiUrl + '/games/addGame', {
       userId: JSON.parse(localStorage.getItem('currentUser'))._id,
       date: Date.now(),
       score: currentScore

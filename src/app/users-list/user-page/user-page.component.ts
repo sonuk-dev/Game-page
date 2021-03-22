@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from "../users.service";
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-user-page',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserPageComponent implements OnInit {
   user:any;
-  constructor(private dataRoute: ActivatedRoute) { }
+  constructor(private dataRoute: ActivatedRoute, private _location: Location) { }
 
   ngOnInit() {
     this.user = {
@@ -19,4 +19,7 @@ export class UserPageComponent implements OnInit {
     }
   }
 
+  goBack() {
+    this._location.back();
+  }
 }

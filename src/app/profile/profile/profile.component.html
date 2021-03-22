@@ -4,7 +4,7 @@
         <p>Nickname: <span>{{ currentUser.nickname }}</span></p>
         <p>Email: <span>{{ currentUser.email }}</span></p>
         <p>High Score: <span>{{ currentUser.bestScore }}</span></p>
-        <mat-icon (click)="goToEdit()">edit</mat-icon>
+        <mat-icon id="edit" (click)="goToEdit()">edit</mat-icon>
         <app-rate-chart [userId]="currentUser._id"></app-rate-chart>
     </div>
 </div>

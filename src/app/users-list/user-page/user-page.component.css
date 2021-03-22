@@ -7,6 +7,11 @@
     background: linear-gradient(#141e30, #243b55);
 }
 
+#back {
+    cursor: pointer;
+    float: right;
+}
+
 #box {
     width: 400px;
     background-color: #fafafa;

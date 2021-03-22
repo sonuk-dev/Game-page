@@ -8,12 +8,21 @@ import { Router } from '@angular/router';
 })
 export class UsersListComponent implements OnInit {
   users: any;
-  page = 1;
   itemPerPage = 5;
   numberOfUsers: Number;
   numberOfPages: Number;
-  constructor(private userService: UsersService, private router: Router) { }
+  constructor(
+    private userService: UsersService, 
+    private router: Router, 
+    ) { }
 
+  get page() {
+    return this.userService.currentPage;
+  }
+
+  set page(value) {
+    this.userService.currentPage = value;
+  }
   getNumberOfUsers() {
     this.userService.getAllUsers().subscribe(
       (res: any[]) => { 

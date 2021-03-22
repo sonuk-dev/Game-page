@@ -14,6 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsersService {
+  currentPage = 1;
 
   constructor(private http: HttpClient) {
   }

@@ -25,6 +25,9 @@ export class SnakeComponent implements OnInit {
     { x: 170, y: 200 },
     { x: 160, y: 200 }
   ]
+  get snakeSpeed() {
+    return this.currentScore > 160 ? 100 : 270 - this.currentScore;
+  }
   get game_over() {
     return this.scoreService.game_over;
   }
@@ -79,7 +82,7 @@ export class SnakeComponent implements OnInit {
       this.drawSnake();
       // Repeat
       this.main();
-    }, 300)
+    }, this.snakeSpeed)
   }
 
   // draw a border around the canvas
